@@ -1,0 +1,261 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body{
+
+  background: url(img_2/beijing.png);
+  z-index: 0;
+  margin:0 auto; text-align:center;
+  width:960px;}
+
+/*顶部*/
+.top{
+  margin:0 auto;
+  width: 960px;
+  height: 32px;
+ 
+  margin-bottom: 2px;
+}
+h2{
+  float: left;
+  color:#171717;
+}
+.t_a{
+
+  height: 32px;
+  float:left;
+  
+}
+.t_a li{
+  float: left;
+  margin-top: 3px;
+  list-style:none;
+  height: 30px; 
+}
+.a1 span{
+  border-radius: 10px;
+  margin: 0;
+  margin-left: 220px;
+  float: left;
+  height:30px;
+    width: 80px;
+    text-align: center;
+    line-height: 30px;
+    background-color:#171717;
+}
+.a2 span{
+  border-radius: 10px;
+  margin-left: 5px;
+  float: left;
+  height:30px;
+    width: 80px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #8f3232;
+}
+.t_a li a{
+   text-decoration: none;
+   color: white;
+}
+
+.t_i{
+  float: right;
+  margin-left: 30px;
+  position: relative;
+} 
+ .f{
+  float: right;
+  margin-top: 7px;  
+ }
+/*导航*/
+.nav{
+  background: url(img_2/c.img.png);
+  height: 28px; 
+}
+.nav ul.d1{
+  overflow: hidden;
+}
+ul{
+  height: 28px;
+}
+.nav ul>li{
+   text-align: center;
+   float: left;
+   list-style:none; 
+}
+.nav li span{
+
+    height: 28px;
+    width: 8px;
+    line-height: 28px;
+    background-color: #111111;
+  
+}
+.nav_2{
+  position: absolute;
+  z-index: 2;
+    display: none; 
+}
+.d1:hover .nav_2{
+   display: block; 
+}
+ul.nav_2 li{
+  float: none;
+    list-style:none;
+    border-radius: 15px;
+  width: 148px;
+  height: 28px;
+  line-height: 28px;
+  background-color: #111111;
+  text-align: center;
+  
+}
+ul.nav_2 li>a{
+  color: #eaeaea;
+  text-decoration: none;
+}
+.nav div{
+  border-radius: 15px;
+  width: 148px;
+  height: 28px;
+  background-color: #111111;
+  margin-left: 10px;
+}
+.d1 a{
+   text-decoration: none;
+    color: #eaeaea;
+}
+.d1 a{
+   text-decoration: none;
+    color: #eaeaea;
+
+}
+.d1{
+  float: left;
+}
+.d1{
+  float: left;
+}
+/*图片*/
+#container img.i_1{
+  height: 400px;
+  width: 960px;
+}
+.i_2{
+  width: 960px;
+  height: 189px;
+position: absolute;
+margin-top: 250px;
+margin-left: -150px; 
+z-index: 1;
+}
+#container .i_2 img{
+  z-index: 4;
+}
+.c_2{
+  position: absolute;
+  margin-top: -110px;
+  margin-left: -22px;
+  z-index: 3;
+}
+/*底部*/
+.buttom{
+ 
+  width: 960px;
+  height: 120px;
+background-color: #d15252;
+z-index: 1;
+}
+p{
+  float:left; }
+
+.arrow_1{
+
+  position:absolute;
+  margin: 10px auto;
+  border: 20px solid transparent;
+  width: 0;
+  height: 0;
+  z-index: 5;
+   
+}
+.arrow_1{
+position: relative;
+margin-top: 1px;
+border-left-color:#985562; 
+float: right;
+margin-right:8px; 
+}
+.b_t {
+  float: right;
+   font-size: 29px;
+}
+.b_t a{
+  text-decoration: none;
+  color: #8952d1;
+}
+/*轮播图*/
+ #container{
+      position: relative;
+      width: 960px;
+      height: 400px;
+      overflow: hidden;
+    }
+#list{
+      position: absolute;
+      width: 6720px;
+      height: 400px;
+      z-index: 1;
+    }
+#list img{
+      float: left;
+      width: 960px;
+      height: 400px;  
+    }
+#buttons{
+        position: absolute;
+        right:  200px;
+        bottom: 20px;
+        z-index: 2;
+        height: 20px;
+        width: 200px;
+    }
+#buttons span{
+      float: left;
+        z-index: 2;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        margin-right: 18px;
+        border: 1px solid #ffb100;
+        background-color: #00ffb8;
+        cursor: pointer;
+        text-align: center;
+    }
+#buttons .on{
+      background: orangered;
+    }
+.arrow{
+        position: absolute;
+        top: 180px;
+        height: 20px;
+        width: 20px;
+        z-index: 3;
+        text-align: center;
+        color: #7aff00;
+        background-color: rgba(0,0,0,3);
+        cursor: pointer;
+        display: none;
+        text-decoration: none;
+}
+
+#container:hover .arrow{
+         display: block;
+    }
+    #prev{
+      left: 20px;
+    }
+    #next{
+      right: 20px;
+    }

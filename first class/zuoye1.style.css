@@ -1,0 +1,36 @@
+body{
+	color: green;
+}
+p{
+  font-size: 22px;	
+}
+a{
+	color: #ff001d;
+}
+a:visited{
+	color: red;
+}
+a:hover{
+	color: #bd00ff;
+}
+
+.d1{
+ height: 60px;
+ width: 60px;
+background-color: red;
+float: left;
+margin-right: 10px;
+}
+.d2{
+ height: 60px;
+ width: 60px;
+background-color: #2196f3;
+float: left;
+margin-right: 10px;
+}
+.d3{
+ height: 60px;
+ width: 60px;
+background-color: #30f321;
+float: left;
+}
