@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>sixt class</title>
+	
+</head>
+<body style="position: relative;">
+     <div class="tianqi">
+          <div class="tq">
+           <h4>
+           	点击天气即可获得天气数据 <br>	
+           	今天：
+		      天气：<p></p>
+		      最低温:<p></p>
+		      最高温:<p></p>
+		      空气质量:<p></p>
+		      风速:<p></p>
+           </h4>
+           <h4>
+           	明天：
+		      天气：<p></p>
+		      最低温:<p></p>
+		      最高温: <p></p>
+		      空气质量:<p></p>
+		      风速:<p></p>
+           </h4>
+           <h4>
+           	后天：
+		      天气：<p></p>
+		      最低温:<p></p>
+		      最高温: <p></p>
+		      空气质量:<p></p>
+		      风速:<p></p>
+           </h4>
+         </div>
+     </div>
+
+
+ <div id="zhuti" style="width:400px;height:300px;border:solid 5px #eee;box-shadow:0 0 5px #666;position:absolute;top:40%;left:40%;">
+ <div id="ziji" style="height:25px;background:#036663;border-bottom:solid 1px #369;color:#fff;text-indent:10px;cursor:move;">点击我可拖拽 </div>
+ </div> 
+</body>
+
+<script type="text/javascript">
+//第一个	 
+   var bodys=document.getElementsByTagName('body')[0];
+   var newdiv=document.createElement("div");
+   var time=2;
+   newdiv.innerHTML=("php");
+   newdiv.style.height="222px";
+   newdiv.style.width="222px";
+   newdiv.style.color="yellow";
+   newdiv.style.left="600px";
+   newdiv.style.top="0px";
+   newdiv.style.position="absolute";
+   newdiv.style.backgroundColor="rgb(22,22,22)";
+   bodys.appendChild(newdiv);
+   function move(offset){
+   	   var newleft=parseInt(newdiv.style.left)+offset;
+	   function suijicolor(){   	  
+		   var r = parseInt(Math.random()*200);
+		   var g = parseInt(Math.random()*200);
+		   var b = parseInt(Math.random()*200);
+		   var rc=r+g+b;
+			   if(rc<765){
+			   // newdiv.style.backgroundColor="#"+rc;
+			   newdiv.style.backgroundColor="rgb("+r+","+g+","+b+")";
+			   tmove(); 	
+			   }  
+		   }
+	     suijicolor();
+       function tmove(){
+           var weiyizongshijian=500;
+    		   var weiyishijianjiange=50;
+    		   var v=offset/(weiyizongshijian/weiyishijianjiange);
+    		   if ((v>0&&parseInt(newdiv.style.left)<newleft)||(v<0&&parseInt(newdiv.style.left)>newleft)){
+    		   setTimeout(tmove,weiyishijianjiange); 
+    		   newdiv.style.left=parseInt(newdiv.style.left)+v+"px";
+    		   }
+	        if (newleft==1600) {
+			    newdiv.style.left=600+"px";
+					        }							      	
+    			if (newleft==-400) {
+    		    	newdiv.style.left=600+"px";
+    					       }
+       }
+	}
+    
+   newdiv.addEventListener("click",function(){
+   	if((time%2)==0)
+   	 move(500);
+    else{
+   	 move(-500);	
+   }
+   time++;
+   },false);
+  // newdiv.removeEventListener("click",function(){
+   //	return move(500);
+   //},false);
+   //newdiv.addEventListener("click",function(){
+   //return move(-500);
+   //},false);
+  
+  //第二个
+	var tianqi=document.querySelector(".tianqi");
+	var xhr = new XMLHttpRequest();
+	var handler=function(){
+    xhr.open("get","http://123.207.89.151/jrtt/forecast" ,true);
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xhr.onreadystatechange = function() {
+		  if (xhr.readyState === 4 && xhr.status === 200) {
+		        //响应成功后的操作
+		        var scriptxhr=JSON.parse(xhr.responseText);
+		         console.log(scriptxhr); 
+		        console.log(scriptxhr.明天);
+		        var tq=document.getElementsByTagName('h4');
+		        var p=tq[1].getElementsByTagName('p');
+		        p[0].innerHTML=scriptxhr.明天.天气; 
+		        p[1].innerHTML=scriptxhr.明天.最低温;
+		        p[2].innerHTML=scriptxhr.明天.最高温;
+		        p[3].innerHTML=scriptxhr.明天.空气质量 ;
+		        p[4].innerHTML=scriptxhr.明天.风速;
+		    }
+}
+		
+	xhr.send();
+}  
+	tianqi.addEventListener("click",handler,false);
+ //拖拽
+  var zhuti=document.querySelector("#zhuti");
+   var  ziji=document.querySelector("#ziji");
+   ziji.onmousedown = function(event){
+  // 解决event兼容问题
+  var event = event || window.event; 
+  // 获取鼠标在页面上坐标
+  var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+  var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
+  // 获取鼠标在innerht内部的坐标
+  var innerX = pageX - zhuti.offsetLeft;
+  var innerY = pageY -zhuti.offsetTop;
+
+  // 给document绑定鼠标移动事件，防止鼠标快速滑动时滑出innerht
+  document.onmousemove = function(event){
+  var event = event || window.event;
+  // 获取鼠标移动时的坐标
+  var moveX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+  var moveY = event.pageY || event.clientY + document.documentElement.scrollTop;
+  // 鼠标移动时demo的位置坐标
+  var demoX = moveX - innerX ;
+  var demoY = moveY - innerY ;
+  // 鼠标移动时demo的位置坐标
+  zhuti.style.left = demoX + "px";
+  zhuti.style.top = demoY + "px";
+
+  }
+  }
+ 
+ // 鼠标抬起清除拖拽效果
+ document.onmouseup = function(){
+  document.onmousemove = null ;
+ };
+         
+</script>
+ 
+
+</html>
