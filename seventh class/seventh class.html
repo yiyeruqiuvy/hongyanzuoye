@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>seventh class</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//mymap 传入的第一个值为操作对象，第二个为匿名函数值
+	//var a=[1,2,3,4,8,5]
+	   function mymap(arry,ft){
+		   ft();
+	       for(var i = 0; i < arry.length; i++) {
+		   arry[i]=ft(arry[i]);
+			}
+		   return arry;
+		}
+	 //var sum=function (p1){return p1+p1;}			
+	 //alert(mymap(a,sum)) ;
+
+
+  //myreduce  传入的第一个值为操作对象，第二个为匿名函数值
+  function myreduce(arry,ft){
+     ft();
+     var rt;
+     for (var i = 0,rt=arry[i]; i < arry.length-1; i++) {
+     	
+     	rt=ft(rt,arry[i+1]);
+     	//console.log(rt);
+     }
+     return rt;
+  }
+  //alert(myreduce([1,999,55,66,54,8],Math.max));
+
+
+  //myforEach  传入的第一个值为操作对象，第二个为匿名函数值
+  function myforEach(arry,ft){
+  	     ft();
+	     for(var i = 0; i < arry.length; i++) {
+		 arry[i]=ft(arry[i]);
+			}
+  }
+  //var a=[1,2,3,4,4];
+  //var sum=function (p1){return p1+p1;}
+  //myforEach(a,sum);
+ //alert(a);
+
+ //mysome  传入的第一个值为操作对象，第二个为匿名函数
+   function mysome(arry,ft){
+         ft();
+          for (var i = 0; i < arry.length; i++) {
+          	if (ft(arry[i])) {
+          		return true;
+          	}
+          }
+   }
+ //  var a=function (argument) { return argument>10;}
+
+  // alert(mysome([1,8,1,8,2,2],a))
+
+
+  //myfilter  传入的第一个值为操作对象，第二个为匿名函数
+  function myfilter(arry,ft){
+   ft();
+   var arrys=[];
+   for (var i = 0,j=0; i < arry.length; i++) {
+   	if (ft(arry[i])) {
+   		arrys[j]=arry[i];
+   		j++;
+   	}
+   }
+   return arrys;
+  }
+  //var a=function (argument) { return argument>10;}
+   //alert(myfilter([1,8,89,56,47,5],a));
+  // var c=myfilter([8,6,89,56,47,5],a);
+
+  //数组测试？
+
+//var ary = [1,23,4];
+function isArray(obj){
+return Object.prototype.toString.call(obj);//=='[object Array]';
+}
+//alert(isArray(ary));
+//console.log(isArray(ary));
+//var arr = [];
+//console.log(Object.prototype.toString.call(arr));
+
+</script>
+</html>
